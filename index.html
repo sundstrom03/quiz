@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Frågesport</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script defer src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+      <div class="box-start">
+        <!--Startskärm, göms när man trycker på starta spelet-->
+        <div class="game-start" id="game-start">
+          <h2>Frågesport</h2>
+          <p>Skriv ditt namn och klicka på knappen för att starta spelet!</p>
+          
+          <input type="text" name="player-name" id="name-input" maxlength="10" /><br />
+          <button onclick=startQuiz() id="start-game-btn" class="m-1">Starta spelet</button>
+        </div>
+        <!--Startskärm END-->
+      <div class="">
+        <!--Spelet pågår, visas efter att man startat spelet och göms när man svarat på alla frågor-->
+        <div class="game-in-progress" id="game-in-progress">
+          <div class="flex-container">
+            <div class="col1">Name:<span id="player-name"></span></div>
+            <div class="col2">Fråga<span id="current-question"></span></div>
+            <div class="col3">Poäng: <span id="player-points"></span></div>
+          </div>
+            <div class="center-elements">
+          <p id="question-field">Frågan visas här.</p>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="answers"
+              id="answer1"
+			  value="1"
+            />
+            <label id="answer-1-field" class="form-check-label" for="answer1">
+              Svar1
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="answers"
+              id="answer2"
+			  value="2"
+            />
+            <label id="answer-2-field" class="form-check-label" for="answer2">
+              Svar2
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="answers"
+              id="answer3"
+			  value="3"
+            />
+            <label id="answer-3-field" class="form-check-label" for="answer3">
+              Svar3
+            </label>
+          </div>
+          <button onclick=changeQuestion() id="user-answer-btn">Nästa fråga</button>
+        </div>
+      </div>
+      </div>
+      <!--Spelet pågår END-->
+      <div class="game-feedback">
+        <!--Feedback, visas efter att man svarat på alla frågor, efter detta kan man starta om spelet-->
+        <div class="" id="game-feedback">
+          <h2 id="congrats">Grattis Kalle Anka du har slutfört frågesporten!</h2>
+          <h3 id="total-player-points">1/10</h3>
+          
+          <p id="feedback">Det var ju ganska bra poäng... om du går i förskolan!</p>
+          <button onclick=restartGame() id="restart-game-btn" class="m-2">Starta om spelet</button>
+          <button onclick=getSmarter() id="get-educated" class="m-3">Wikipedia</button>
+        </div>
+        <!--Feedback END-->
+      </div>
+    </div>
+  </body>
+</html>
